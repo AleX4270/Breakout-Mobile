@@ -8,6 +8,7 @@ public class BallMovement : MonoBehaviour
 {
     private float x, xDir;
     private Vector2 bounceDir;
+    private GameManager gm;
 
     [Range(0.1f, 1f)]
     public float bounceOffset;
@@ -19,6 +20,7 @@ public class BallMovement : MonoBehaviour
     private void Start()
     {
         ball = this.gameObject.GetComponent<Rigidbody2D>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -35,6 +37,16 @@ public class BallMovement : MonoBehaviour
             ball.AddForce(new Vector2(bounceDir.x, 0.5f).normalized * this.speed * 100);
             Debug.Log("Kierunek: " + bounceDir.x);
             Debug.DrawLine(col.gameObject.transform.position, col.GetContact(0).point, Color.green);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        //If ball hit the brick
+        if(other.gameObject.CompareTag("Brick"))
+        {
+            Destroy(other.gameObject);
+            gm.addPoint();
         }
     }
 
