@@ -35,7 +35,6 @@ public class BallMovement : MonoBehaviour
 
             ball.velocity = Vector2.zero;
             ball.AddForce(new Vector2(bounceDir.x, 0.5f).normalized * this.speed * 100);
-            Debug.Log("Kierunek: " + bounceDir.x);
             Debug.DrawLine(col.gameObject.transform.position, col.GetContact(0).point, Color.green);
         }
     }
@@ -55,6 +54,11 @@ public class BallMovement : MonoBehaviour
         float x = Random.Range(-bounceOffset, bounceOffset);
         
         ball.AddForce(new Vector2(x, 0.5f).normalized * this.speed * 100);
+    }
+    
+    public void respawnBall()
+    {
+        this.transform.position = ballSpawn.position;
     }
 
     public void freezeBall(bool freeze)

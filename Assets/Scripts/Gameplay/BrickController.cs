@@ -29,11 +29,9 @@ public class BrickController : MonoBehaviour
         maxBricks = (int)(cameraWidth / brickWidth);
 
         brickOffset = ((cameraWidth / brickWidth) - maxBricks) / maxBricks;
-        
-        spawnBricks(); //should be called by GameManager
     }
 
-    private void spawnBricks()
+    public void spawnBricks()
     {
         Debug.Log("Max Bricks: " + maxBricks);
         Debug.Log("Max Bricks (float): " + (cameraWidth / brickWidth));
@@ -76,6 +74,11 @@ public class BrickController : MonoBehaviour
 
     public void deleteBricks()
     {
-        
+        GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+
+        foreach (GameObject gm in bricks)
+        {
+            Destroy(gm);
+        }
     }
 }

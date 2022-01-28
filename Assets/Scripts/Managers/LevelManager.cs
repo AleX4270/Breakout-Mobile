@@ -23,28 +23,30 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(loadScene("NormalMode"));
     }
 
-    public void loadArcadeMode()
+    public void loadMainMenu()
     {
         //audioManager.PlaySound("btnClick");
-        StartCoroutine(loadScene("ArcadeMode"));
+        StartCoroutine(loadScene("MainMenu"));
+    }
+    
+    public void loadArcadeMode()
+    {
+        
     }
 
     public void loadHelpMenu()
     {
-        //audioManager.PlaySound("btnClick");
-        StartCoroutine(loadScene("helpMenu"));
+        
     }
 
     public void loadCreditsMenu()
     {
-        //audioManager.PlaySound("btnClick");
-        StartCoroutine(loadScene("creditsMenu"));
+        
     }
 
     public void loadSettingsMenu()
     {
-        //audioManager.PlaySound("btnClick");
-        StartCoroutine(loadScene("settingsMenu"));
+        
     }
 
     public void quitGame()
