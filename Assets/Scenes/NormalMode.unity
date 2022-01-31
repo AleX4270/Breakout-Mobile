@@ -890,7 +890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469706281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7738016, y: 0, z: 0}
+  m_LocalPosition: {x: 3.78, y: 0, z: 0}
   m_LocalScale: {x: 0.06, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1857809099}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: startGame
         m_Mode: 1
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1857809099}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: retryGame
         m_Mode: 1
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1857809099}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: pauseGame
         m_Mode: 1
@@ -2008,9 +2008,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e9ef45ac25cdf4aa20fba58526e701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceOffset: 0.2
-  speed: 5
-  ballSpawn: {fileID: 1528404375}
+  bounceOffset: 0
+  speed: 0
+  ballSpawn: {fileID: 0}
 --- !u!1 &1116100831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,7 +2143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148530759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7438016, y: 3.26, z: 0}
+  m_LocalPosition: {x: -3.75, y: 3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2393,7 +2393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203030683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7738016, y: 0, z: 0}
+  m_LocalPosition: {x: -3.78, y: 0, z: 0}
   m_LocalScale: {x: 0.06, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2551,7 +2551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377164803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7438016, y: 4.04, z: 0}
+  m_LocalPosition: {x: -3.75, y: 4.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2597,7 +2597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387706122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7438016, y: 3.65, z: 0}
+  m_LocalPosition: {x: -3.75, y: 3.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2659,9 +2659,13 @@ GameObject:
   - component: {fileID: 1621427100}
   - component: {fileID: 1621427099}
   - component: {fileID: 1621427098}
-  - component: {fileID: 1621427103}
   - component: {fileID: 1621427102}
   - component: {fileID: 1621427101}
+  - component: {fileID: 1621427103}
+  - component: {fileID: 1621427107}
+  - component: {fileID: 1621427106}
+  - component: {fileID: 1621427105}
+  - component: {fileID: 1621427104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2806,12 +2810,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 1621427097}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ca602542449264ba02a3ddb65843ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 116d9c283431a694c838f00d7add3cbe, type: 2}
+  playerSpawnPoint: {fileID: 779276377}
+--- !u!114 &1621427104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621427097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290f735b099b98b4f838c937224ef3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1621427105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621427097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b266a7305dee8c49899852d77b20b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1621427106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621427097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03b1a51d4264b0745a9c42cc55c3acaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  playerSpawnpoint: {fileID: 779276377}
-  mainCam: {fileID: 1242018351}
+--- !u!114 &1621427107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621427097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1983969bac36d44f9fcbfda5f61b458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1650486225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,8 +3161,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857809098}
-  - component: {fileID: 1857809099}
-  - component: {fileID: 1857809100}
   - component: {fileID: 1857809101}
   m_Layer: 0
   m_Name: GameMaster
@@ -3134,49 +3183,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1857809099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857809097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27f0e3f4fff9dbc4ba5b1b3b1adb4bf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStartHealth: 3
-  startBtn: {fileID: 636187027}
-  playerScore: {fileID: 1901107683}
-  playerHealth: {fileID: 1959391755}
-  defeatMenu: {fileID: 542734129}
-  gameScore: {fileID: 878551077}
-  pauseMenu: {fileID: 1685656739}
-  pauseBtn: {fileID: 933230316}
-  ball: {fileID: 1009544381}
-  ballController: {fileID: 1009544382}
-  player: {fileID: 1621427102}
-  playerController: {fileID: 1621427103}
---- !u!114 &1857809100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857809097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3063db298c0a4ab4abe5d4578ea6eb48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brickPrefab: {fileID: 8394706083709157185, guid: c31b63ba59db2ab409138712003e5432, type: 3}
-  mainCam: {fileID: 1242018351}
-  boundOffset: 1.5
-  spawnPoints:
-  - {fileID: 1377164804}
-  - {fileID: 1387706123}
-  - {fileID: 1148530760}
 --- !u!114 &1857809101
 MonoBehaviour:
   m_ObjectHideFlags: 0

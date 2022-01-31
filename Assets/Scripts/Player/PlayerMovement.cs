@@ -5,30 +5,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     private Rigidbody2D player;
-    private bool freeze;
-    public float speed;
-    public Transform playerSpawnpoint;
-    public Camera mainCam;
     private Touch touch;
-
     private Vector3 touchPosition;
-    private Vector2 playerPos;
 
     private void Start()
     {
         player = this.gameObject.GetComponent<Rigidbody2D>();
-        this.freeze = true;
     }
 
-    private void FixedUpdate()
+    private void movePlayer(float speed)
     {
-        movePlayer();
-    }
-
-    private void movePlayer()
-    {
-        if (Input.touchCount > 0 && !freeze)
+        if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
 
@@ -42,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetMouseButton(0) && !freeze) //DEBUG ONLY - DELETE WHEN BUILDING
+        else if(Input.GetMouseButton(0)) //DEBUG ONLY
         {
             touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -53,14 +42,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-
-    public void respawnPlayer()
-    {
-        this.transform.position = playerSpawnpoint.position;
-    }
-
-    public void freezePlayer(bool freeze)
-    {
-        this.freeze = freeze;
-    }
 }

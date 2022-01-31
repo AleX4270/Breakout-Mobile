@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     public void startGame()
     {
         ballController.freezeBall(false);
-        playerController.freezePlayer(false);
+        //playerController.freezePlayer(false);
         ballController.pushBall();
         startBtn.gameObject.SetActive(false);
 
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void gameOver()
     {
-        playerController.freezePlayer(true);
+        //playerController.freezePlayer(true);
         ballController.freezeBall(true);
         
         defeatMenu.gameObject.SetActive(true);
@@ -105,8 +105,8 @@ public class GameManager : MonoBehaviour
         ballController.respawnBall();
         ballController.freezeBall(true);
         
-        playerController.respawnPlayer();
-        playerController.freezePlayer(true);
+        //playerController.respawnPlayer();
+        //playerController.freezePlayer(true);
         
         startBtn.gameObject.SetActive(true);
     }
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
     {
         brickCon.deleteBricks();
 
-        playerController.respawnPlayer();
+       // playerController.respawnPlayer();
         ballController.respawnBall();
         
         resetPlayerStats();
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         else if (gamePaused)
             ball.velocity = ballVel;
         
-        playerController.freezePlayer(!gamePaused);
+        //playerController.freezePlayer(!gamePaused);
         ballController.freezeBall(!gamePaused);
         pauseMenu.SetActive(!gamePaused);
         

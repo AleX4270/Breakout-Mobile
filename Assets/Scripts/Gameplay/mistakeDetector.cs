@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class mistakeDetector : MonoBehaviour
 {
+
     private GameManager gm;
 
     private void Start()
