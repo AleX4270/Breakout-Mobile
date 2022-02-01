@@ -11,9 +11,9 @@ public class PlayerPhysics : MonoBehaviour
         this.rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void movePlayer(Vector3 newPosition, float speed, float offset)
+    public void movePlayer(Vector3 newPosition, float speed, float offset, PState playerState)
     {
-        if(Mathf.Abs(newPosition.y - rb2d.position.y) < offset)
+        if((Mathf.Abs(newPosition.y - rb2d.position.y) < offset) && (playerState == PState.inGame))
         {
             this.rb2d.MovePosition(newPosition * speed * Time.fixedDeltaTime);
         }

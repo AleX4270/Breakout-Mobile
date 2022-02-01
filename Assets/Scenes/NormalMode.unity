@@ -1868,10 +1868,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1009544378}
   - component: {fileID: 1009544377}
-  - component: {fileID: 1009544379}
-  - component: {fileID: 1009544382}
   - component: {fileID: 1009544381}
   - component: {fileID: 1009544380}
+  - component: {fileID: 1009544384}
+  - component: {fileID: 1009544383}
+  - component: {fileID: 1009544382}
+  - component: {fileID: 1009544379}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1953,12 +1955,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009544376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c450b7932d5be14a8ad34e7ca1124d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 358bcb71cc95e2240a11d622248b29e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  executeInUpdate: 0
-  anchorType: 1
-  anchorOffset: {x: 0, y: 2.3, z: 0}
+  ballController: {fileID: 1009544384}
 --- !u!58 &1009544380
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2005,12 +2005,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009544376}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4804a4dd03dab2e48b7fb1acac2b0ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballController: {fileID: 1009544384}
+--- !u!114 &1009544383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009544376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23e9ef45ac25cdf4aa20fba58526e701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceOffset: 0
-  speed: 0
-  ballSpawn: {fileID: 0}
+  ballController: {fileID: 1009544384}
+--- !u!114 &1009544384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009544376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d825988bab582e41898ca901ee1e14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 1528404375}
+  ballState: {fileID: 1009544379}
+  ballMovement: {fileID: 1009544383}
+  ballPhys: {fileID: 1009544382}
+  ballData: {fileID: 11400000, guid: 5d8d5256ec272a24a8065094edcfc6de, type: 2}
 --- !u!1 &1116100831
 GameObject:
   m_ObjectHideFlags: 0

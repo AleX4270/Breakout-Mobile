@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State
+public enum PState
 {
     inGame,
     freezed
@@ -10,8 +10,8 @@ public enum State
 
 public class PlayerState : MonoBehaviour
 {
-    private State pState;
-    public State PState
+    private PState pState;
+    public PState PState
     {
         get 
         { 
@@ -21,7 +21,7 @@ public class PlayerState : MonoBehaviour
 
     public void freezePlayer(bool freeze)
     {
-        pState = (freeze == true) ? State.freezed : State.inGame;  
+        pState = (freeze == true) ? PState.freezed : PState.inGame;  
     }
 
    

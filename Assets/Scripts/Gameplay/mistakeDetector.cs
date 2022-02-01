@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class mistakeDetector : MonoBehaviour
 {
-
+    /*
     private GameManager gm;
 
     private void Start()
@@ -24,4 +24,5 @@ public class mistakeDetector : MonoBehaviour
             Debug.LogError("Could not find object of type GameManager! [mistakeDetector]");
         }
     }
+    */
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,13 +11,11 @@ public class Player : MonoBehaviour
     private PlayerState playerState;
 
     [SerializeField] private Transform playerSpawnPoint;
-    private Rigidbody2D rb2d;
-    private Vector3 touchPosition;
+    private Vector3 newPosition;
     
     
     private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         playerPhysics = GetComponent<PlayerPhysics>();
         playerInput = GetComponent<PlayerInput>();
         playerState = GetComponent<PlayerState>();
@@ -25,16 +23,24 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+#if (UNITY_EDITOR)
+        UpdatePlayerPositionMouse();
+#else
         UpdatePlayerPosition();
+#endif
     }
 
     private void UpdatePlayerPosition()
     {
-        touchPosition = playerInput.GetTouchPosition();
+        newPosition = playerInput.GetTouchPosition();
 
-        if(playerState.PState == State.inGame)
-        {
-            playerPhysics.movePlayer(touchPosition, playerData.Speed, playerData.Offset);
-        }
+        playerPhysics.movePlayer(newPosition, playerData.Speed, playerData.Offset, playerState.PState);
+    }
+
+    private void UpdatePlayerPositionMouse()
+    {
+        newPosition = playerInput.GetMousePosition();
+
+        playerPhysics.movePlayer(newPosition, playerData.Speed, playerData.Offset, playerState.PState);
     }
 }

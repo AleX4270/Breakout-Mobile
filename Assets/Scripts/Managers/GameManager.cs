@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    
+    /*
     private Touch touch;
     private bool gamePaused;
     private Vector2 ballVel;
@@ -146,4 +148,7 @@ public class GameManager : MonoBehaviour
         
         this.gamePaused = !gamePaused;
     }
+    */
+
+    
 }
