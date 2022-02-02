@@ -19,13 +19,18 @@ public class BallMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Wall"))
         {
             ballController.ballPhys.calculateBounceWall(collision);
+        } 
+
+        if(collision.gameObject.CompareTag("TopWall"))
+        {
+            ballController.ballPhys.calculateBounceTopWall(collision);
         }
     }
     
     public void pushBall(float randOffset)
     {
         randX = Random.Range(-randOffset, randOffset);
-        ballController.rb2d.velocity = new Vector2(randX, 1f).normalized * ballController.ballData.speed * 100 * Time.deltaTime;
+        ballController.rb2d.velocity = new Vector2(randX, 1f).normalized * ballController.ballData.speed;
     }
 
     public void respawnBall()

@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
     internal Rigidbody2D rb2d;
     [SerializeField] internal Transform respawnPoint;
 
-    [SerializeField] internal BallState ballState;
+    [SerializeField] internal GameState gameState;
     [SerializeField] internal BallMovement ballMovement;
     [SerializeField] internal BallPhysics ballPhys;
     [SerializeField] internal BallData ballData;

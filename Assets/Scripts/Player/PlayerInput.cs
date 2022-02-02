@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
     private Touch touch;
 
-    public Vector3 GetTouchPosition()
+    internal Vector3 GetTouchPosition()
     {
         if(Input.touchCount > 0)
         {
@@ -21,7 +22,7 @@ public class PlayerInput : MonoBehaviour
         return Vector3.zero;
     }
 
-    public Vector3 GetMousePosition()
+    internal Vector3 GetMousePosition()
     {
         if(Input.GetMouseButton(0))
         {

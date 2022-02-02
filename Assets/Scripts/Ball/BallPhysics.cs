@@ -8,15 +8,16 @@ public class BallPhysics : MonoBehaviour
 
     private Vector2 bounceDir;
     private Vector2 velocityBufor;
+    private Vector2 newVelocity;
 
     private void Start()
     {
-        ballController.ballState.ballStatusChanged += freezeBallPosition;
+        ballController.gameState.gameStatusChanged += freezeBallPosition;
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        
+        ballController.gameState.gameStatusChanged -= freezeBallPosition;
     }
 
     public void calculateBouncePlayer(Collision2D col)
@@ -24,22 +25,33 @@ public class BallPhysics : MonoBehaviour
         Vibration.Vibrate(20);
 
         bounceDir = (col.GetContact(0).point - (Vector2)col.gameObject.transform.position).normalized;
-        ballController.rb2d.velocity = bounceDir * ballController.ballData.speed * Time.deltaTime;
+        ballController.rb2d.velocity = bounceDir * ballController.ballData.speed;
     }
 
     public void calculateBounceWall(Collision2D col)
     {
-        ballController.rb2d.velocity = col.GetContact(0).relativeVelocity;
+        newVelocity = col.GetContact(0).relativeVelocity;
+        Debug.Log("Relative Velocity: " + newVelocity, this);
+        ballController.rb2d.velocity = new Vector2(newVelocity.x, -newVelocity.y);
+        Debug.Log("Velocity After:" + ballController.rb2d.velocity, this);
     }
 
-    public void freezeBallPosition(object sender, BState state)
+    public void calculateBounceTopWall(Collision2D col)
     {
-        if(state == BState.freezed)
+        newVelocity = col.GetContact(0).relativeVelocity;
+        Debug.Log("Relative Velocity: " + newVelocity, this);
+        ballController.rb2d.velocity = new Vector2(-newVelocity.x, newVelocity.y);
+        Debug.Log("Velocity After:" + ballController.rb2d.velocity, this);
+    }
+
+    private void freezeBallPosition(object sender, State state)
+    {
+        if(state == State.paused)
         {
             velocityBufor = ballController.rb2d.velocity;
             ballController.rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-        else if(state == BState.inGame)
+        else if(state == State.running)
         {
             ballController.rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
             ballController.rb2d.velocity = velocityBufor;

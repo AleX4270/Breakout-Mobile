@@ -975,7 +975,7 @@ GameObject:
   - component: {fileID: 599537662}
   m_Layer: 0
   m_Name: topWall
-  m_TagString: Wall
+  m_TagString: TopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,7 +1873,6 @@ GameObject:
   - component: {fileID: 1009544384}
   - component: {fileID: 1009544383}
   - component: {fileID: 1009544382}
-  - component: {fileID: 1009544379}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1946,19 +1945,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1009544379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009544376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358bcb71cc95e2240a11d622248b29e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballController: {fileID: 1009544384}
 --- !u!58 &1009544380
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1991,7 +1977,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: dd3d3d893d4fc9b4ca9ec909f971b84c, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -2035,7 +2021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1528404375}
-  ballState: {fileID: 1009544379}
+  gameState: {fileID: 11400000, guid: 4b446766cc1008e4183255c98322d0b3, type: 2}
   ballMovement: {fileID: 1009544383}
   ballPhys: {fileID: 1009544382}
   ballData: {fileID: 11400000, guid: 5d8d5256ec272a24a8065094edcfc6de, type: 2}
@@ -2689,11 +2675,10 @@ GameObject:
   - component: {fileID: 1621427098}
   - component: {fileID: 1621427102}
   - component: {fileID: 1621427101}
-  - component: {fileID: 1621427103}
-  - component: {fileID: 1621427107}
   - component: {fileID: 1621427106}
   - component: {fileID: 1621427105}
   - component: {fileID: 1621427104}
+  - component: {fileID: 1621427103}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2838,24 +2823,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1621427097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5ca602542449264ba02a3ddb65843ae, type: 3}
+  m_Script: {fileID: 11500000, guid: d49c7c5d9e57da0458e617734185d0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 116d9c283431a694c838f00d7add3cbe, type: 2}
-  playerSpawnPoint: {fileID: 779276377}
+  playerController: {fileID: 1621427106}
 --- !u!114 &1621427104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621427097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290f735b099b98b4f838c937224ef3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1621427105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2867,19 +2839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b266a7305dee8c49899852d77b20b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1621427106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621427097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b1a51d4264b0745a9c42cc55c3acaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1621427107
+  playerController: {fileID: 1621427106}
+--- !u!114 &1621427105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2891,6 +2852,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1983969bac36d44f9fcbfda5f61b458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1621427106}
+--- !u!114 &1621427106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621427097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac7076062e1508408aea2f5c48f0c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 116d9c283431a694c838f00d7add3cbe, type: 2}
+  playerPhysics: {fileID: 1621427104}
+  playerMovement: {fileID: 1621427103}
+  playerInput: {fileID: 1621427105}
+  gameState: {fileID: 11400000, guid: 4b446766cc1008e4183255c98322d0b3, type: 2}
+  respawnPoint: {fileID: 779276377}
 --- !u!1 &1650486225
 GameObject:
   m_ObjectHideFlags: 0

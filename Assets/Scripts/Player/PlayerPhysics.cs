@@ -4,23 +4,38 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+    [SerializeField] private PlayerController playerController;
+    private Vector2 velocityBufor;
 
     private void Start()
     {
-        this.rb2d = GetComponent<Rigidbody2D>();
+        playerController.gameState.gameStatusChanged += freezePlayerPosition;   
     }
 
-    public void movePlayer(Vector3 newPosition, float speed, float offset, PState playerState)
+    private void OnDestroy()
     {
-        if((Mathf.Abs(newPosition.y - rb2d.position.y) < offset) && (playerState == PState.inGame))
+        playerController.gameState.gameStatusChanged -= freezePlayerPosition;
+    }
+
+    public void movePlayer(Vector2 newPosition)
+    {
+        if(Mathf.Abs(newPosition.y - playerController.rb2d.position.y) < playerController.playerData.offset)
         {
-            this.rb2d.MovePosition(newPosition * speed * Time.fixedDeltaTime);
+            playerController.rb2d.MovePosition(newPosition * playerController.playerData.speed * Time.fixedDeltaTime);
         }
     }
 
-    public void respawnPlayer(Transform playerSpawnpoint)
+    private void freezePlayerPosition(object sender, State state)
     {
-        this.transform.position = playerSpawnpoint.position;
+        if (state == State.paused)
+        {
+            velocityBufor = playerController.rb2d.velocity;
+            playerController.rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else if (state == State.running)
+        {
+            playerController.rb2d.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
+            playerController.rb2d.velocity = velocityBufor;
+        }
     }
 }
