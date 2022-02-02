@@ -2550,6 +2550,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1377164804}
   - component: {fileID: 1377164805}
+  - component: {fileID: 1377164807}
+  - component: {fileID: 1377164806}
   m_Layer: 0
   m_Name: firstRow
   m_TagString: Untagged
@@ -2586,6 +2588,36 @@ MonoBehaviour:
   executeInUpdate: 1
   anchorType: 3
   anchorOffset: {x: 0, y: 4.04, z: 0}
+--- !u!114 &1377164806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377164803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737c41e678e8ae34aa9970bdd5d2a4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1377164807}
+--- !u!114 &1377164807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377164803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6c7660ee13d8044acbb87a4a1c9f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickData: {fileID: 11400000, guid: 04eefda8f5fc1a54ba6ef7b910e3e60a, type: 2}
+  brickManager: {fileID: 1377164806}
+  brickPrefab: {fileID: 8394706083709157185, guid: c31b63ba59db2ab409138712003e5432, type: 3}
+  mainCam: {fileID: 1242018351}
+  spawnPoint: {fileID: 1377164804}
 --- !u!1 &1387706122
 GameObject:
   m_ObjectHideFlags: 0

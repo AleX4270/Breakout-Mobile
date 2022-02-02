@@ -31,17 +31,13 @@ public class BallPhysics : MonoBehaviour
     public void calculateBounceWall(Collision2D col)
     {
         newVelocity = col.GetContact(0).relativeVelocity;
-        Debug.Log("Relative Velocity: " + newVelocity, this);
         ballController.rb2d.velocity = new Vector2(newVelocity.x, -newVelocity.y);
-        Debug.Log("Velocity After:" + ballController.rb2d.velocity, this);
     }
 
     public void calculateBounceTopWall(Collision2D col)
     {
         newVelocity = col.GetContact(0).relativeVelocity;
-        Debug.Log("Relative Velocity: " + newVelocity, this);
         ballController.rb2d.velocity = new Vector2(-newVelocity.x, newVelocity.y);
-        Debug.Log("Velocity After:" + ballController.rb2d.velocity, this);
     }
 
     private void freezeBallPosition(object sender, State state)

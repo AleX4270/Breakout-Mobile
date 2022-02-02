@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickController : MonoBehaviour
+public class BrickControllerOld : MonoBehaviour
 {
     public GameObject brickPrefab;
     public Camera mainCam;
