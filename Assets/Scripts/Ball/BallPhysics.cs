@@ -25,7 +25,9 @@ public class BallPhysics : MonoBehaviour
         Vibration.Vibrate(20);
 
         bounceDir = (col.GetContact(0).point - (Vector2)col.gameObject.transform.position).normalized;
-        ballController.rb2d.velocity = bounceDir * ballController.ballData.speed;
+        bounceDir *= ballController.ballData.speed;
+        bounceDir.x = Mathf.Clamp(bounceDir.x, -ballController.ballData.bounceOffset, ballController.ballData.bounceOffset);
+        ballController.rb2d.velocity = bounceDir;
     }
 
     public void calculateBounceWall(Collision2D col)

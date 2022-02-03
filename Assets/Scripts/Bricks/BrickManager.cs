@@ -6,15 +6,8 @@ public class BrickManager : MonoBehaviour
 {
     [SerializeField] private BrickController controller;
 
-    private void Start()
+    public void spawnBricksRow()
     {
-        StartCoroutine(spawnBricksRow());
-    }
-
-    IEnumerator spawnBricksRow()
-    {
-        yield return new WaitForSeconds(2f);
-
         for (int k = 0; k < controller.maxBricks; k++)
         {
             if (k == 0)
@@ -31,6 +24,11 @@ public class BrickManager : MonoBehaviour
                          Quaternion.identity);
             }
         }
+    }
+
+    public void deleteBrick(GameObject target)
+    {
+        Destroy(target);
     }
 
     public void deleteBricksRow()

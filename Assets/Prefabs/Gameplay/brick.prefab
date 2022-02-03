@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8394706083709157190}
   - component: {fileID: 8394706083709157191}
   - component: {fileID: 8394706083709157184}
+  - component: {fileID: -4794800328291435468}
   m_Layer: 0
   m_Name: brick
   m_TagString: Brick
@@ -92,7 +93,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8394706083709157185}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: dd3d3d893d4fc9b4ca9ec909f971b84c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!114 &-4794800328291435468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394706083709157185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2918d21ae6ec35d45bcc9f2a168dfef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

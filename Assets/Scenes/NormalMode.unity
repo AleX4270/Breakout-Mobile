@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1857809099}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: startGame
         m_Mode: 1
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 1009544382}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2142,6 +2142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1148530760}
   - component: {fileID: 1148530761}
+  - component: {fileID: 1148530763}
+  - component: {fileID: 1148530762}
   m_Layer: 0
   m_Name: thirdRow
   m_TagString: Untagged
@@ -2178,6 +2180,36 @@ MonoBehaviour:
   executeInUpdate: 1
   anchorType: 3
   anchorOffset: {x: 0, y: 3.26, z: 0}
+--- !u!114 &1148530762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148530759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737c41e678e8ae34aa9970bdd5d2a4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1148530763}
+--- !u!114 &1148530763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148530759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6c7660ee13d8044acbb87a4a1c9f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickData: {fileID: 11400000, guid: 04eefda8f5fc1a54ba6ef7b910e3e60a, type: 2}
+  brickManager: {fileID: 1148530762}
+  brickPrefab: {fileID: 8394706083709157185, guid: c31b63ba59db2ab409138712003e5432, type: 3}
+  mainCam: {fileID: 1242018351}
+  spawnPoint: {fileID: 1148530760}
 --- !u!1 &1172532460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,7 +2267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build: 5
+  m_text: 'Build: 6
 
 '
   m_isRightToLeft: 0
@@ -2628,6 +2660,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1387706123}
   - component: {fileID: 1387706124}
+  - component: {fileID: 1387706126}
+  - component: {fileID: 1387706125}
   m_Layer: 0
   m_Name: secondRow
   m_TagString: Untagged
@@ -2664,6 +2698,36 @@ MonoBehaviour:
   executeInUpdate: 1
   anchorType: 3
   anchorOffset: {x: 0, y: 3.65, z: 0}
+--- !u!114 &1387706125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387706122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737c41e678e8ae34aa9970bdd5d2a4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1387706126}
+--- !u!114 &1387706126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387706122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6c7660ee13d8044acbb87a4a1c9f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickData: {fileID: 11400000, guid: 04eefda8f5fc1a54ba6ef7b910e3e60a, type: 2}
+  brickManager: {fileID: 1387706125}
+  brickPrefab: {fileID: 8394706083709157185, guid: c31b63ba59db2ab409138712003e5432, type: 3}
+  mainCam: {fileID: 1242018351}
+  spawnPoint: {fileID: 1387706123}
 --- !u!1 &1528404374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,6 +3266,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1857809098}
   - component: {fileID: 1857809101}
+  - component: {fileID: 1857809100}
+  - component: {fileID: 1857809099}
+  - component: {fileID: 1857809104}
+  - component: {fileID: 1857809103}
+  - component: {fileID: 1857809102}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -3223,6 +3292,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857809099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857809097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43882c80b1fb7548be3e148d8cda9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1857809100}
+--- !u!114 &1857809100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857809097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd44204658a1c7428dd041807dcc38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayManager: {fileID: 1857809104}
+  uiManager: {fileID: 1857809103}
+  gameState: {fileID: 11400000, guid: 4b446766cc1008e4183255c98322d0b3, type: 2}
+  playerStatsManager: {fileID: 1857809102}
+  ballController: {fileID: 1009544384}
+  playerController: {fileID: 1621427106}
+  brickControllers:
+  - {fileID: 1377164807}
+  - {fileID: 1387706126}
+  - {fileID: 1148530763}
+  startBtn: {fileID: 636187027}
+  playerScore: {fileID: 1901107683}
+  playerHealth: {fileID: 1959391755}
 --- !u!114 &1857809101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3235,6 +3342,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09429b2291b72e74c89ba82028d3cc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1857809102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857809097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8756e0956da4fc54195259c036add918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1857809100}
+--- !u!114 &1857809103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857809097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8b9918e49c34244b34098e307042e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1857809100}
+--- !u!114 &1857809104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857809097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60b8c0df59f43c468e156b05dc40b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1857809100}
 --- !u!1 &1901107681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,7 +3393,7 @@ GameObject:
   - component: {fileID: 1901107684}
   - component: {fileID: 1901107683}
   m_Layer: 5
-  m_Name: highestScoreText
+  m_Name: currentScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

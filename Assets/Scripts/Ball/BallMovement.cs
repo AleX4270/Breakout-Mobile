@@ -26,10 +26,10 @@ public class BallMovement : MonoBehaviour
             ballController.ballPhys.calculateBounceTopWall(collision);
         }
     }
-    
-    public void pushBall(float randOffset)
+
+    public void pushBall()
     {
-        randX = Random.Range(-randOffset, randOffset);
+        randX = Random.Range(-ballController.ballData.bounceOffset, ballController.ballData.bounceOffset);
         ballController.rb2d.velocity = new Vector2(randX, 1f).normalized * ballController.ballData.speed;
     }
 

@@ -5,9 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManagerOld : MonoBehaviour
 {
-    
     /*
     private Touch touch;
     private bool gamePaused;
@@ -148,7 +147,7 @@ public class GameManager : MonoBehaviour
         
         this.gamePaused = !gamePaused;
     }
-    */
-
     
+
+    */
 }

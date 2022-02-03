@@ -29,11 +29,5 @@ public class BrickController : MonoBehaviour
         this.bricksInstances = new GameObject[maxBricks];
 
         brickData.brickOffset = ((this.cameraWidth / this.brickWidth) - this.maxBricks) / this.maxBricks;
-
-        Debug.Log("Max Bricks: " + maxBricks);
-        Debug.Log("Max Bricks (float): " + (cameraWidth / brickWidth));
-        Debug.Log("Offset: " + brickData.brickOffset);
-        Debug.Log("Cam width: " + cameraWidth);
-        Debug.Log("Brick width: " + brickWidth);
     }
 }

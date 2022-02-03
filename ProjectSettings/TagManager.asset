@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Brick
   - TopWall
+  - Ball
   layers:
   - Default
   - TransparentFX

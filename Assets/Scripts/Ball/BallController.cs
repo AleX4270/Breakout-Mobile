@@ -16,11 +16,4 @@ public class BallController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
-
-    private void Start()
-    {
-        ballMovement.pushBall(ballData.bounceOffset);
-    }
-
-
 }
