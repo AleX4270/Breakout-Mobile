@@ -25,4 +25,19 @@ public class GameManager : MonoBehaviour
         gameController.uiManager.startGame();
         gameController.gameplayManager.startGame();
     }
+
+    //Continue
+    public void continueGame()
+    {
+        gameController.uiManager.manageUIContinueState();
+        gameController.gameplayManager.continueGame();
+    }
+
+    //Restart Game
+    public void restartGame()
+    {
+        gameController.playerStatsManager.initStartingStats();
+        gameController.uiManager.manageUIRestartState();
+        gameController.gameplayManager.restartGame();
+    }
 }

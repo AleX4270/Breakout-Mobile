@@ -26,11 +26,6 @@ public class BrickManager : MonoBehaviour
         }
     }
 
-    public void deleteBrick(GameObject target)
-    {
-        Destroy(target);
-    }
-
     public void deleteBricksRow()
     {
         foreach(var brick in controller.bricksInstances)

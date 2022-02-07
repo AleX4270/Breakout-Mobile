@@ -17,6 +17,12 @@ public class GameController : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] internal Button startBtn;
+    [SerializeField] internal Button retryBtn;
     [SerializeField] internal TMP_Text playerScore;
     [SerializeField] internal TMP_Text playerHealth;
+    [SerializeField] internal GameObject gameOverMenu;
+
+    [Header("Game Over Menu")]
+    [SerializeField] internal TMP_Text gameScore;
+
 }

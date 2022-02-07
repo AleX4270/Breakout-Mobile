@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   offset: 3
+  startHealth: 2

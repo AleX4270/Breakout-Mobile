@@ -6,29 +6,65 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
 
-    //Init
+    //States
     public void initGameStartingUI()
     {
-        showStartBtn();
+        showStartBtn(true);
         resetPlayerStatsUI();
     }
-
-    //Start
+    
     public void startGame()
     {
-        hideStartBtn();
+        showStartBtn(false);
     }
 
-    public void showStartBtn()
+    public void manageUIContinueState()
     {
-        gameController.startBtn.gameObject.SetActive(true);
+        showRetryBtn(false);
     }
 
-    public void hideStartBtn()
+    public void manageUIRestartState()
     {
-        gameController.startBtn.gameObject.SetActive(false);
+        showGameOverMenu(false);
+        resetPlayerStatsUI();
+        showStartBtn(true);
     }
 
+    //Updates
+    public void updatePlayerHealthText()
+    {
+        gameController.playerHealth.text = gameController.playerController.playerData.currentHealth.ToString();
+    }
+
+    public void updatePlayerScoreText()
+    {
+        gameController.playerScore.text = gameController.playerController.playerData.currentScore.ToString();
+    }
+
+    public void updateGameOverPlayerStats()
+    {
+        gameController.gameScore.text = gameController.playerController.playerData.currentScore.ToString();
+        //Update high score
+    }
+
+    //Buttons Management
+    public void showStartBtn(bool isDisplayed)
+    {
+        gameController.startBtn.gameObject.SetActive(isDisplayed);
+    }
+
+    public void showRetryBtn(bool isDisplayed)
+    {
+        gameController.retryBtn.gameObject.SetActive(isDisplayed);
+    }
+
+    //Menus Management
+    public void showGameOverMenu(bool isDisplayed)
+    {
+        gameController.gameOverMenu.SetActive(isDisplayed);
+    }
+
+    //Misc.
     public void resetPlayerStatsUI()
     {
         gameController.playerScore.text = "0";
