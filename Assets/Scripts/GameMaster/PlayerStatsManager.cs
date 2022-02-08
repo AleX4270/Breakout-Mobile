@@ -6,16 +6,27 @@ public class PlayerStatsManager : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
 
-    //States
-    public void initStartingStats()
+    //Init player stats (reset)
+    public void restartStats()
     {
-        resetPlayerStats();
+        resetPlayerHealthStats();
+        resetPlayerScoreStats();
+    }
+
+    //Reset the stats for the next level
+    public void resetNextLevelStats()
+    {
+        resetPlayerHealthStats();
     }
 
     //Player Stats Management
-    public void resetPlayerStats()
+    public void resetPlayerHealthStats()
     {
         gameController.playerController.playerData.currentHealth = gameController.playerController.playerData.startHealth;
+    }
+
+    public void resetPlayerScoreStats()
+    {
         gameController.playerController.playerData.currentScore = 0;
     }
 
@@ -27,11 +38,11 @@ public class PlayerStatsManager : MonoBehaviour
 
         if(gameController.playerController.playerData.currentHealth <= 0)
         {
-            gameController.gameplayManager.gameOver();
+            gameController.gameManager.gameOver();
         }
         else
         {
-            gameController.gameplayManager.retryAttempt();
+            gameController.gameManager.retryAttempt();
         }
     }
 

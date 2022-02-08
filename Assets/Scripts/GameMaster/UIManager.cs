@@ -6,27 +6,54 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
 
-    //States
+    //Init the game's UI at the start
     public void initGameStartingUI()
     {
         showStartBtn(true);
-        resetPlayerStatsUI();
+        resetTopBarStatsUI();
     }
     
-    public void startGame()
+    //Adjust the game's UI after starting it
+    public void adjustGameStartedUI()
     {
         showStartBtn(false);
     }
 
-    public void manageUIContinueState()
+    public void adjustRetryGameUI()
     {
         showRetryBtn(false);
+    }
+
+    //When all HP is lost...
+    public void adjustGameoverUI()
+    {
+        showGameOverMenu(true);
+        updateGameOverPlayerStats();
+    }
+
+    //Attempts Management
+    public void adjustRetryAttemptUI()
+    {
+        showRetryBtn(true);
+    }
+
+    public void adjustNextLevelAttemptUI()
+    {
+        showLevelCompletedMenu(true);
     }
 
     public void manageUIRestartState()
     {
         showGameOverMenu(false);
-        resetPlayerStatsUI();
+        resetTopBarStatsUI();
+        showStartBtn(true);
+    }
+
+    public void manageUINextLevelState()
+    {
+        showLevelCompletedMenu(false);
+        resetPlayerHealthUI();
+        adjustLevelNumberUI();
         showStartBtn(true);
     }
 
@@ -64,10 +91,33 @@ public class UIManager : MonoBehaviour
         gameController.gameOverMenu.SetActive(isDisplayed);
     }
 
+    public void showLevelCompletedMenu(bool isDisplayed)
+    {
+        gameController.completeMenu.SetActive(isDisplayed);
+    }
+
     //Misc.
-    public void resetPlayerStatsUI()
+    public void resetTopBarStatsUI()
+    {
+        resetPlayerHealthUI();
+        resetPlayerCurrentScoreUI();
+        adjustLevelNumberUI();
+    }
+
+    
+    //UI Stats Management
+    public void resetPlayerHealthUI()
+    {
+        gameController.playerHealth.text = gameController.playerController.playerData.startHealth.ToString();
+    }
+
+    public void resetPlayerCurrentScoreUI()
     {
         gameController.playerScore.text = "0";
-        gameController.playerHealth.text = gameController.playerController.playerData.startHealth.ToString();
+    }
+
+    public void adjustLevelNumberUI()
+    {
+        gameController.gameLevel.text = gameController.levelData.currentLevel.ToString();
     }
 }

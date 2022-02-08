@@ -11,33 +11,65 @@ public class GameManager : MonoBehaviour
         initGame();
     }
 
-    //Init
+    //Initialize the level for the first time
     public void initGame()
     {
         gameController.gameplayManager.initGameScene();
-        gameController.playerStatsManager.initStartingStats();
+        gameController.playerStatsManager.restartStats();
+        gameController.levelManager.resetGameLevel();
         gameController.uiManager.initGameStartingUI();
     }
 
-    //Start
+    //Start the game after pressing the start btn
     public void startGame()
     {
-        gameController.uiManager.startGame();
+        gameController.uiManager.adjustGameStartedUI();
         gameController.gameplayManager.startGame();
     }
 
-    //Continue
-    public void continueGame()
+    //Retry after a failure
+    public void retryGame()
     {
-        gameController.uiManager.manageUIContinueState();
-        gameController.gameplayManager.continueGame();
+        gameController.uiManager.adjustRetryGameUI();
+        gameController.gameplayManager.retryGame();
     }
 
-    //Restart Game
+    //Restart the game after a failure
     public void restartGame()
     {
-        gameController.playerStatsManager.initStartingStats();
+        gameController.playerStatsManager.restartStats();
+        gameController.levelManager.resetGameLevel();
         gameController.uiManager.manageUIRestartState();
         gameController.gameplayManager.restartGame();
     }
+
+    //Load next level after finishing the previous one
+    public void nextLevel()
+    {
+        gameController.playerStatsManager.resetNextLevelStats();
+        gameController.levelManager.nextLevel();
+        gameController.uiManager.manageUINextLevelState();
+        gameController.gameplayManager.nextLevel();
+    }
+
+    //When all HP is lost...
+    public void gameOver()
+    {
+        gameController.uiManager.adjustGameoverUI();
+        gameController.gameplayManager.gameOver();
+    }
+
+    //Attempts
+    public void retryAttempt()
+    {
+        gameController.gameplayManager.adjustAttempt();
+        gameController.uiManager.adjustRetryAttemptUI();
+    }
+
+    public void nextLevelAttempt()
+    {
+        gameController.gameplayManager.adjustAttempt();
+        gameController.uiManager.adjustNextLevelAttemptUI();
+    }
+
 }

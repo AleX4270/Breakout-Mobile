@@ -16,6 +16,7 @@ public class Brick : MonoBehaviour
         if(collision.gameObject.CompareTag("Ball"))
         {
             controller.playerStatsManager.addPoints(1);
+            controller.gameplayManager.subtractBrickCount(1);
             Destroy(this.gameObject);
         }
     }

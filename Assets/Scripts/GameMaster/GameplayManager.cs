@@ -6,47 +6,53 @@ public class GameplayManager : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
 
-    //Init
+    //Initialize the game scene
     public void initGameScene()
     {
         pauseGame();
     }
 
-    //Game State Management
+    //Start the game after pressing the start btn
     public void startGame()
     {
         generateBricks();
         resumeGame();
 
-        gameController.ballController.ballMovement.pushBall();
+        pushTheBall();
     }
 
-    public void continueGame()
+    //Retry the game after failure
+    public void retryGame()
     {
         resumeGame();
-        gameController.ballController.ballMovement.pushBall();
-
-        gameController.uiManager.showRetryBtn(false);
+        pushTheBall();
     }
 
+    //Restart the game after a total failure
     public void restartGame()
     {
-        deleteBricks();
-
         respawnPlayerAndBall();
-
         pauseGame();
+
+        deleteBricks();
     }
 
-    public void retryAttempt()
+    //Prepare the next level
+    public void nextLevel()
     {
         respawnPlayerAndBall();
-
         pauseGame();
-
-        gameController.uiManager.showRetryBtn(true);
     }
 
+    //Attempts
+    public void adjustAttempt()
+    {
+        respawnPlayerAndBall();
+        pauseGame();
+    }
+
+
+    //Game State Management
     public void pauseGame()
     {
         gameController.gameState.changeGameState(true);
@@ -60,8 +66,6 @@ public class GameplayManager : MonoBehaviour
     public void gameOver()
     {
         pauseGame();
-        gameController.uiManager.showGameOverMenu(true);
-        gameController.uiManager.updateGameOverPlayerStats();
     }
 
     //Misc.
@@ -71,6 +75,7 @@ public class GameplayManager : MonoBehaviour
         foreach (var row in gameController.brickControllers)
         {
             row.brickManager.spawnBricksRow();
+            gameController.bricksCount += row.maxBricks;
         }
     }
 
@@ -86,5 +91,21 @@ public class GameplayManager : MonoBehaviour
     {
         gameController.ballController.ballMovement.respawnBall();
         gameController.playerController.playerMovement.respawnPlayer();
+    }
+
+    public void subtractBrickCount(int amount)
+    {
+        gameController.bricksCount -= amount;
+        Debug.Log(gameController.bricksCount);
+
+        if(gameController.bricksCount <= 0)
+        {
+            gameController.gameManager.nextLevelAttempt();
+        }
+    }
+
+    public void pushTheBall()
+    {
+        gameController.ballController.ballMovement.pushBall();
     }
 }
