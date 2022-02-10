@@ -883,7 +883,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1857809099}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: continueGame
+        m_MethodName: retryGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4242,21 +4242,22 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: 4b446766cc1008e4183255c98322d0b3, type: 2}
   playerStatsManager: {fileID: 1857809102}
   levelManager: {fileID: 1857809105}
+  levelData: {fileID: 11400000, guid: 1e952fa94b747cc4b849475bc177adc0, type: 2}
+  gameManagerData: {fileID: 0}
   ballController: {fileID: 1009544384}
   playerController: {fileID: 1621427106}
   brickControllers:
   - {fileID: 1377164807}
   - {fileID: 1387706126}
   - {fileID: 1148530763}
-  levelData: {fileID: 11400000, guid: 1e952fa94b747cc4b849475bc177adc0, type: 2}
   startBtn: {fileID: 636187027}
   retryBtn: {fileID: 110589591}
   playerScore: {fileID: 1901107683}
   playerHealth: {fileID: 1959391755}
   gameLevel: {fileID: 1405945193}
   gameOverMenu: {fileID: 542734129}
-  completeMenu: {fileID: 472689957}
   gameScore: {fileID: 878551077}
+  completeMenu: {fileID: 472689957}
 --- !u!114 &1857809102
 MonoBehaviour:
   m_ObjectHideFlags: 0

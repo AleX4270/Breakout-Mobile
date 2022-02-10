@@ -1,36 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Managers")]
     [SerializeField] internal GameplayManager gameplayManager;
     [SerializeField] internal GameManager gameManager;
     [SerializeField] internal UIManager uiManager;
     [SerializeField] internal GameState gameState;
     [SerializeField] internal PlayerStatsManager playerStatsManager;
     [SerializeField] internal LevelManager levelManager;
+    
+    [Header("Data")]
+    [SerializeField] internal LevelData levelData;
+    [SerializeField] internal GameManagerData gameManagerData;
 
+    [Header("GameplayObjects")]
     [SerializeField] internal BallController ballController;
     [SerializeField] internal PlayerController playerController;
     [SerializeField] internal BrickController[] brickControllers;
 
-    [SerializeField] internal LevelData levelData;
-
     [Header("UI")]
     [SerializeField] internal Button startBtn;
     [SerializeField] internal Button retryBtn;
+
+    [Header("UI Top Bar Stats")]
     [SerializeField] internal TMP_Text playerScore;
     [SerializeField] internal TMP_Text playerHealth;
     [SerializeField] internal TMP_Text gameLevel;
-    [SerializeField] internal GameObject gameOverMenu;
-    [SerializeField] internal GameObject completeMenu;
 
-    [Header("Game Over Menu")]
+    [Header("UI Game Over Menu")]
+    [SerializeField] internal GameObject gameOverMenu;
     [SerializeField] internal TMP_Text gameScore;
 
+    [Header("UI Finish Menu")]
+    [SerializeField] internal GameObject completeMenu;
+
+    //Internal Controls
     internal float bricksCount;
 
 }

@@ -6,30 +6,7 @@ public class PlayerStatsManager : MonoBehaviour
 {
     [SerializeField] private GameController gameController;
 
-    //Init player stats (reset)
-    public void restartStats()
-    {
-        resetPlayerHealthStats();
-        resetPlayerScoreStats();
-    }
-
-    //Reset the stats for the next level
-    public void resetNextLevelStats()
-    {
-        resetPlayerHealthStats();
-    }
-
     //Player Stats Management
-    public void resetPlayerHealthStats()
-    {
-        gameController.playerController.playerData.currentHealth = gameController.playerController.playerData.startHealth;
-    }
-
-    public void resetPlayerScoreStats()
-    {
-        gameController.playerController.playerData.currentScore = 0;
-    }
-
     public void takeLife(int amount)
     {
         gameController.playerController.playerData.currentHealth -= amount;
@@ -50,5 +27,26 @@ public class PlayerStatsManager : MonoBehaviour
     {
         gameController.playerController.playerData.currentScore += amount;
         gameController.uiManager.updatePlayerScoreText();
+    }
+
+    public void resetPlayerHealthStats()
+    {
+        gameController.playerController.playerData.currentHealth = gameController.playerController.playerData.startHealth;
+    }
+
+    public void resetPlayerScoreStats()
+    {
+        gameController.playerController.playerData.currentScore = 0;
+    }
+
+    public void restartStats()
+    {
+        resetPlayerHealthStats();
+        resetPlayerScoreStats();
+    }
+
+    public void resetNextLevelStats()
+    {
+        resetPlayerHealthStats();
     }
 }

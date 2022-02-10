@@ -44,7 +44,7 @@ public class GameplayManager : MonoBehaviour
         pauseGame();
     }
 
-    //Attempts
+    //An attempt to retry or restart the game
     public void adjustAttempt()
     {
         respawnPlayerAndBall();
@@ -52,7 +52,7 @@ public class GameplayManager : MonoBehaviour
     }
 
 
-    //Game State Management
+    //Gameplay State Management
     public void pauseGame()
     {
         gameController.gameState.changeGameState(true);
@@ -63,12 +63,7 @@ public class GameplayManager : MonoBehaviour
         gameController.gameState.changeGameState(false);
     }
 
-    public void gameOver()
-    {
-        pauseGame();
-    }
-
-    //Misc.
+    //Bricks management
 
     public void generateBricks()
     {
@@ -87,21 +82,22 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public void respawnPlayerAndBall()
-    {
-        gameController.ballController.ballMovement.respawnBall();
-        gameController.playerController.playerMovement.respawnPlayer();
-    }
-
     public void subtractBrickCount(int amount)
     {
         gameController.bricksCount -= amount;
         Debug.Log(gameController.bricksCount);
 
-        if(gameController.bricksCount <= 0)
+        if (gameController.bricksCount <= 0)
         {
             gameController.gameManager.nextLevelAttempt();
         }
+    }
+
+    //Player and ball Management
+    public void respawnPlayerAndBall()
+    {
+        gameController.ballController.ballMovement.respawnBall();
+        gameController.playerController.playerMovement.respawnPlayer();
     }
 
     public void pushTheBall()

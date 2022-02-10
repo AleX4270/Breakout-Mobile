@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     public void adjustGameoverUI()
     {
         showGameOverMenu(true);
-        updateGameOverPlayerStats();
+        updatePlayerScoreText();
     }
 
     //Attempts Management
@@ -42,14 +42,14 @@ public class UIManager : MonoBehaviour
         showLevelCompletedMenu(true);
     }
 
-    public void manageUIRestartState()
+    public void adjustUIRestart()
     {
         showGameOverMenu(false);
         resetTopBarStatsUI();
         showStartBtn(true);
     }
 
-    public void manageUINextLevelState()
+    public void manageUINextLevel()
     {
         showLevelCompletedMenu(false);
         resetPlayerHealthUI();
@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
         gameController.completeMenu.SetActive(isDisplayed);
     }
 
-    //Misc.
+    //UI Stats Management
     public void resetTopBarStatsUI()
     {
         resetPlayerHealthUI();
@@ -104,8 +104,6 @@ public class UIManager : MonoBehaviour
         adjustLevelNumberUI();
     }
 
-    
-    //UI Stats Management
     public void resetPlayerHealthUI()
     {
         gameController.playerHealth.text = gameController.playerController.playerData.startHealth.ToString();

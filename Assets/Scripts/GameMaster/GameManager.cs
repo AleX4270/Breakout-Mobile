@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         gameController.playerStatsManager.restartStats();
         gameController.levelManager.resetGameLevel();
-        gameController.uiManager.manageUIRestartState();
+        gameController.uiManager.adjustUIRestart();
         gameController.gameplayManager.restartGame();
     }
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         gameController.playerStatsManager.resetNextLevelStats();
         gameController.levelManager.nextLevel();
-        gameController.uiManager.manageUINextLevelState();
+        gameController.uiManager.manageUINextLevel();
         gameController.gameplayManager.nextLevel();
     }
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public void gameOver()
     {
         gameController.uiManager.adjustGameoverUI();
-        gameController.gameplayManager.gameOver();
+        gameController.gameplayManager.pauseGame();
     }
 
     //Attempts
