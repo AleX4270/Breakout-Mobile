@@ -7,12 +7,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameController gameController;
 
     //Init the game level code.
-    public void resetGameLevel()
+    internal void resetGameLevel()
     {
         gameController.levelData.currentLevel = gameController.levelData.startingLevel;
     }
 
-    public void nextLevel()
+    internal void nextLevel()
     {
         gameController.levelData.currentLevel++;
     }

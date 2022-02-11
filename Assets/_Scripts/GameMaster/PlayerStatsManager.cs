@@ -7,7 +7,7 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField] private GameController gameController;
 
     //Player Stats Management
-    public void takeLife(int amount)
+    internal void takeLife(int amount)
     {
         gameController.playerController.playerData.currentHealth -= amount;
         gameController.uiManager.updatePlayerHealthText();
@@ -23,29 +23,29 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    public void addPoints(int amount)
+    internal void addPoints(int amount)
     {
         gameController.playerController.playerData.currentScore += amount;
         gameController.uiManager.updatePlayerScoreText();
     }
 
-    public void resetPlayerHealthStats()
+    private void resetPlayerHealthStats()
     {
         gameController.playerController.playerData.currentHealth = gameController.playerController.playerData.startHealth;
     }
 
-    public void resetPlayerScoreStats()
+    private void resetPlayerScoreStats()
     {
         gameController.playerController.playerData.currentScore = 0;
     }
 
-    public void restartStats()
+    internal void restartStats()
     {
         resetPlayerHealthStats();
         resetPlayerScoreStats();
     }
 
-    public void resetNextLevelStats()
+    internal void resetNextLevelStats()
     {
         resetPlayerHealthStats();
     }

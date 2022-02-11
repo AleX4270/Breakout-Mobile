@@ -7,13 +7,13 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameController gameController;
 
     //Initialize the game scene
-    public void initGameScene()
+    internal void initGameScene()
     {
         pauseGame();
     }
 
     //Start the game after pressing the start btn
-    public void startGame()
+    internal void startGame()
     {
         generateBricks();
         resumeGame();
@@ -22,14 +22,14 @@ public class GameplayManager : MonoBehaviour
     }
 
     //Retry the game after failure
-    public void retryGame()
+    internal void retryGame()
     {
         resumeGame();
         pushTheBall();
     }
 
     //Restart the game after a total failure
-    public void restartGame()
+    internal void restartGame()
     {
         respawnPlayerAndBall();
         pauseGame();
@@ -38,14 +38,14 @@ public class GameplayManager : MonoBehaviour
     }
 
     //Prepare the next level
-    public void nextLevel()
+    internal void nextLevel()
     {
         respawnPlayerAndBall();
         pauseGame();
     }
 
     //An attempt to retry or restart the game
-    public void adjustAttempt()
+    internal void adjustAttempt()
     {
         respawnPlayerAndBall();
         pauseGame();
@@ -53,19 +53,19 @@ public class GameplayManager : MonoBehaviour
 
 
     //Gameplay State Management
-    public void pauseGame()
+    internal void pauseGame()
     {
         gameController.gameState.changeGameState(true);
     }
 
-    public void resumeGame()
+    internal void resumeGame()
     {
         gameController.gameState.changeGameState(false);
     }
 
     //Bricks management
 
-    public void generateBricks()
+    private void generateBricks()
     {
         foreach (var row in gameController.brickControllers)
         {
@@ -74,7 +74,7 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public void deleteBricks()
+    private void deleteBricks()
     {
         foreach(var row in gameController.brickControllers)
         {
@@ -82,7 +82,7 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public void subtractBrickCount(int amount)
+    internal void subtractBrickCount(int amount)
     {
         gameController.bricksCount -= amount;
         Debug.Log(gameController.bricksCount);
@@ -94,13 +94,13 @@ public class GameplayManager : MonoBehaviour
     }
 
     //Player and ball Management
-    public void respawnPlayerAndBall()
+    internal void respawnPlayerAndBall()
     {
         gameController.ballController.ballMovement.respawnBall();
         gameController.playerController.playerMovement.respawnPlayer();
     }
 
-    public void pushTheBall()
+    internal void pushTheBall()
     {
         gameController.ballController.ballMovement.pushBall();
     }

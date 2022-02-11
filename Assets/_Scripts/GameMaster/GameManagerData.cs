@@ -6,6 +6,5 @@ using UnityEngine;
 public class GameManagerData : ScriptableObject
 {
     public bool isNormalMode;
-    public bool isArcadeMode;
     public bool isMenu;
 }

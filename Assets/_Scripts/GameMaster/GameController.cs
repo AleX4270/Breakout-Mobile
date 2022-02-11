@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Mode")]
+    [SerializeField] internal bool isGameplay;
+    [SerializeField] internal bool isMenu;
+    
     [Header("Managers")]
     [SerializeField] internal GameplayManager gameplayManager;
     [SerializeField] internal GameManager gameManager;
@@ -39,5 +43,4 @@ public class GameController : MonoBehaviour
 
     //Internal Controls
     internal float bricksCount;
-
 }

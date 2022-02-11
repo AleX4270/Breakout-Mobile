@@ -7,49 +7,49 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameController gameController;
 
     //Init the game's UI at the start
-    public void initGameStartingUI()
+    internal void initGameStartingUI()
     {
         showStartBtn(true);
         resetTopBarStatsUI();
     }
-    
+
     //Adjust the game's UI after starting it
-    public void adjustGameStartedUI()
+    internal void adjustGameStartedUI()
     {
         showStartBtn(false);
     }
 
-    public void adjustRetryGameUI()
+    internal void adjustRetryGameUI()
     {
         showRetryBtn(false);
     }
 
     //When all HP is lost...
-    public void adjustGameoverUI()
+    internal void adjustGameoverUI()
     {
         showGameOverMenu(true);
         updatePlayerScoreText();
     }
 
     //Attempts Management
-    public void adjustRetryAttemptUI()
+    internal void adjustRetryAttemptUI()
     {
         showRetryBtn(true);
     }
 
-    public void adjustNextLevelAttemptUI()
+    internal void adjustNextLevelAttemptUI()
     {
         showLevelCompletedMenu(true);
     }
 
-    public void adjustUIRestart()
+    internal void adjustUIRestart()
     {
         showGameOverMenu(false);
         resetTopBarStatsUI();
         showStartBtn(true);
     }
 
-    public void manageUINextLevel()
+    internal void manageUINextLevel()
     {
         showLevelCompletedMenu(false);
         resetPlayerHealthUI();
@@ -58,63 +58,57 @@ public class UIManager : MonoBehaviour
     }
 
     //Updates
-    public void updatePlayerHealthText()
+    internal void updatePlayerHealthText()
     {
         gameController.playerHealth.text = gameController.playerController.playerData.currentHealth.ToString();
     }
 
-    public void updatePlayerScoreText()
+    internal void updatePlayerScoreText()
     {
         gameController.playerScore.text = gameController.playerController.playerData.currentScore.ToString();
     }
 
-    public void updateGameOverPlayerStats()
-    {
-        gameController.gameScore.text = gameController.playerController.playerData.currentScore.ToString();
-        //Update high score
-    }
-
     //Buttons Management
-    public void showStartBtn(bool isDisplayed)
+    private void showStartBtn(bool isDisplayed)
     {
         gameController.startBtn.gameObject.SetActive(isDisplayed);
     }
 
-    public void showRetryBtn(bool isDisplayed)
+    private void showRetryBtn(bool isDisplayed)
     {
         gameController.retryBtn.gameObject.SetActive(isDisplayed);
     }
 
     //Menus Management
-    public void showGameOverMenu(bool isDisplayed)
+    private void showGameOverMenu(bool isDisplayed)
     {
         gameController.gameOverMenu.SetActive(isDisplayed);
     }
 
-    public void showLevelCompletedMenu(bool isDisplayed)
+    private void showLevelCompletedMenu(bool isDisplayed)
     {
         gameController.completeMenu.SetActive(isDisplayed);
     }
 
     //UI Stats Management
-    public void resetTopBarStatsUI()
+    private void resetTopBarStatsUI()
     {
         resetPlayerHealthUI();
         resetPlayerCurrentScoreUI();
         adjustLevelNumberUI();
     }
 
-    public void resetPlayerHealthUI()
+    private void resetPlayerHealthUI()
     {
         gameController.playerHealth.text = gameController.playerController.playerData.startHealth.ToString();
     }
 
-    public void resetPlayerCurrentScoreUI()
+    private void resetPlayerCurrentScoreUI()
     {
         gameController.playerScore.text = "0";
     }
 
-    public void adjustLevelNumberUI()
+    private void adjustLevelNumberUI()
     {
         gameController.gameLevel.text = gameController.levelData.currentLevel.ToString();
     }

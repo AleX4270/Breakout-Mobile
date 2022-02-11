@@ -21,10 +21,7 @@ public class BallMovement : MonoBehaviour
             ballController.ballPhys.calculateBounceWall(collision);
         } 
 
-        if(collision.gameObject.CompareTag("TopWall"))
-        {
-            ballController.ballPhys.calculateBounceTopWall(collision);
-        }
+        
     }
 
     public void pushBall()

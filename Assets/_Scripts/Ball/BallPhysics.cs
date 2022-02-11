@@ -25,8 +25,9 @@ public class BallPhysics : MonoBehaviour
         Vibration.Vibrate(20);
 
         bounceDir = (col.GetContact(0).point - (Vector2)col.gameObject.transform.position).normalized;
+        bounceDir.y = 1f;
         bounceDir *= ballController.ballData.speed;
-        bounceDir.x = Mathf.Clamp(bounceDir.x, -ballController.ballData.bounceOffset, ballController.ballData.bounceOffset);
+        //bounceDir.x = Mathf.Clamp(bounceDir.x, -ballController.ballData.bounceOffset, ballController.ballData.bounceOffset);
         ballController.rb2d.velocity = bounceDir;
     }
 
@@ -34,12 +35,6 @@ public class BallPhysics : MonoBehaviour
     {
         newVelocity = col.GetContact(0).relativeVelocity;
         ballController.rb2d.velocity = new Vector2(newVelocity.x, -newVelocity.y);
-    }
-
-    public void calculateBounceTopWall(Collision2D col)
-    {
-        newVelocity = col.GetContact(0).relativeVelocity;
-        ballController.rb2d.velocity = new Vector2(-newVelocity.x, newVelocity.y);
     }
 
     private void freezeBallPosition(object sender, State state)
