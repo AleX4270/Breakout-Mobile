@@ -24,10 +24,10 @@ public class BallPhysics : MonoBehaviour
     {
         Vibration.Vibrate(20);
 
-        bounceDir = (col.GetContact(0).point - (Vector2)col.gameObject.transform.position).normalized;
-        bounceDir.y = 1f;
+        //bounceDir = (col.GetContact(0).point - (Vector2)col.gameObject.transform.position).normalized;
+        bounceDir = ((Vector2)this.transform.position - (Vector2)col.gameObject.transform.position).normalized / col.gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+        //bounceDir.y = 1f;
         bounceDir *= ballController.ballData.speed;
-        //bounceDir.x = Mathf.Clamp(bounceDir.x, -ballController.ballData.bounceOffset, ballController.ballData.bounceOffset);
         ballController.rb2d.velocity = bounceDir;
     }
 

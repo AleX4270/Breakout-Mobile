@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     //Init the game's UI at the start
     internal void initGameStartingUI()
     {
+        enablePasueBtn(false);
         showStartBtn(true);
         resetTopBarStatsUI();
     }
@@ -17,16 +18,19 @@ public class UIManager : MonoBehaviour
     internal void adjustGameStartedUI()
     {
         showStartBtn(false);
+        enablePasueBtn(true);
     }
 
     internal void adjustRetryGameUI()
     {
+        enablePasueBtn(true);
         showRetryBtn(false);
     }
 
     //When all HP is lost...
     internal void adjustGameoverUI()
     {
+        enablePasueBtn(false);
         showGameOverMenu(true);
         updatePlayerScoreText();
     }
@@ -34,16 +38,19 @@ public class UIManager : MonoBehaviour
     //Attempts Management
     internal void adjustRetryAttemptUI()
     {
+        enablePasueBtn(false);
         showRetryBtn(true);
     }
 
     internal void adjustNextLevelAttemptUI()
     {
+        enablePasueBtn(false);
         showLevelCompletedMenu(true);
     }
 
     internal void adjustUIRestart()
     {
+        enablePasueBtn(false);
         showGameOverMenu(false);
         resetTopBarStatsUI();
         showStartBtn(true);
@@ -51,10 +58,16 @@ public class UIManager : MonoBehaviour
 
     internal void manageUINextLevel()
     {
+        enablePasueBtn(false);
         showLevelCompletedMenu(false);
         resetPlayerHealthUI();
         adjustLevelNumberUI();
         showStartBtn(true);
+    }
+
+    internal void adjustPauseUI(bool wantsToDisplay)
+    {
+        showPauseMenu(wantsToDisplay);
     }
 
     //Updates
@@ -79,6 +92,11 @@ public class UIManager : MonoBehaviour
         gameController.retryBtn.gameObject.SetActive(isDisplayed);
     }
 
+    private void enablePasueBtn(bool isDisabled)
+    {
+        gameController.pauseBtn.interactable = isDisabled;
+    }
+
     //Menus Management
     private void showGameOverMenu(bool isDisplayed)
     {
@@ -88,6 +106,11 @@ public class UIManager : MonoBehaviour
     private void showLevelCompletedMenu(bool isDisplayed)
     {
         gameController.completeMenu.SetActive(isDisplayed);
+    }
+
+    private void showPauseMenu(bool isDisplayed)
+    {
+        gameController.pauseMenu.SetActive(isDisplayed);
     }
 
     //UI Stats Management

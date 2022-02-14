@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] internal bool isMenu;
     
     [Header("Managers")]
+    [SerializeField] internal LevelController levelController;
     [SerializeField] internal GameplayManager gameplayManager;
     [SerializeField] internal GameManager gameManager;
     [SerializeField] internal UIManager uiManager;
@@ -40,6 +41,10 @@ public class GameController : MonoBehaviour
 
     [Header("UI Finish Menu")]
     [SerializeField] internal GameObject completeMenu;
+
+    [Header("UI Pause Menu")]
+    [SerializeField] internal GameObject pauseMenu;
+    [SerializeField] internal Button pauseBtn;
 
     //Internal Controls
     internal float bricksCount;

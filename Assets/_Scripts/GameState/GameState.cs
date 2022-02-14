@@ -12,22 +12,21 @@ public enum State
 [CreateAssetMenu(menuName = "GameState")]
 public class GameState : ScriptableObject
 {
-    private State bState;
+    public State GState { get; private set; }
 
     public event EventHandler<State> gameStatusChanged;
-
     public void changeGameState(bool freeze)
     {
         if (freeze)
         {
-            this.bState = State.paused;
+            this.GState = State.paused;
         }
         else
         {
-            this.bState = State.running;
+            this.GState = State.running;
         }
 
-        OnGameStatusChanged(this.bState);
+        OnGameStatusChanged(this.GState);
 
     }
 

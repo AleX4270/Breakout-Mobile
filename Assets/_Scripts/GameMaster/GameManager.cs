@@ -88,4 +88,34 @@ public class GameManager : MonoBehaviour
         gameController.uiManager.adjustNextLevelAttemptUI();
     }
 
+    public void pauseGame()
+    {
+        if(gameController.gameState.GState == State.running)
+        {
+            gameController.gameplayManager.pauseGame();
+            gameController.uiManager.adjustPauseUI(true);
+        }
+        else
+        {
+            gameController.gameplayManager.resumeGame();
+            gameController.uiManager.adjustPauseUI(false);
+        }
+    }
+
+    //Scene Management
+    public void proceedToNormalMode()
+    {
+        gameController.levelController.proceedToNormalMode();
+    }
+
+    public void proceedToMainMenu()
+    {
+        gameController.levelController.proceedToMainMenu();
+    }
+
+    public void quitGame()
+    {
+        gameController.levelController.quitGame();
+    }
+
 }
