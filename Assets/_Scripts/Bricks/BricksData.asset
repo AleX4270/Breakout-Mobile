@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac60d23a186f0f745aacb4bb42a34b0c, type: 3}
   m_Name: BricksData
   m_EditorClassIdentifier: 
-  boundOffset: 2
+  boundOffset: 0.5

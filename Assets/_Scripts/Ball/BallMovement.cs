@@ -8,20 +8,13 @@ public class BallMovement : MonoBehaviour
 {
     [SerializeField] private BallController ballController;
     private float randX;
-
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
             ballController.ballPhys.calculateBouncePlayer(collision);
         }
-        
-        if(collision.gameObject.CompareTag("Wall"))
-        {
-            ballController.ballPhys.calculateBounceWall(collision);
-        } 
-
-        
     }
 
     public void pushBall()

@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     private Vector3 newPosition;
 
-    private void Update()
+    private void FixedUpdate()
     {
         #if (UNITY_EDITOR)
             UpdatePlayerPositionMouse();

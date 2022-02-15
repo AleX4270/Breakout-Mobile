@@ -9,4 +9,9 @@ public class PlayerData : ScriptableObject
 
     internal float currentHealth;
     internal float currentScore;
+
+    //Other controls
+    internal float cameraWidth;
+    internal float playerWidth;
+
 }

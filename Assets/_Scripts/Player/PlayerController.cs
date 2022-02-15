@@ -16,7 +16,17 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        calculateCameraWidth();
+        calculatePlayerWidth();
     }
 
+    private void calculateCameraWidth()
+    {
+        playerData.cameraWidth = (Camera.main.orthographicSize * Camera.main.aspect) * 2;
+    }
 
+    private void calculatePlayerWidth()
+    {
+        playerData.playerWidth = this.gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
+    }
 }
