@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
     [Header("Mode")]
     [SerializeField] internal bool isGameplay;
     [SerializeField] internal bool isMenu;
+
+    [Header("Fps Cap")]
+    [SerializeField] internal int fpsLimit;
     
     [Header("Managers")]
     [SerializeField] internal LevelController levelController;
@@ -48,4 +51,11 @@ public class GameController : MonoBehaviour
 
     //Internal Controls
     internal float bricksCount;
+
+    //Temporary solution - to be reworked
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = this.fpsLimit;
+    }
 }
